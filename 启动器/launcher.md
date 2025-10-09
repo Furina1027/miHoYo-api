@@ -31,7 +31,7 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
 | retcode | num | 返回码 | 0表示成功 |
-| message | str | 返回消息 | 通常为"OK" |
+| message | str | 返回消息 | |
 | data | obj | 游戏分支信息数据 | 包含各游戏的分支信息 |
 
 `data`对象：
@@ -46,6 +46,7 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 |------|------|------|------|
 | game | obj | 游戏基本信息 | 包含游戏ID和biz标识 |
 | main | obj | 主分支信息 | 包含版本、包信息等 |
+| categories | arr | 分类信息数组 | 包含语言和游戏分类 |
 | pre_download | obj/null | 预下载分支信息 | 如无预下载版本则为null |
 
 `game_branches`数组→对象→`game`对象：
@@ -60,18 +61,17 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
 | package_id | str | 包ID | 游戏安装包唯一标识 |
-| branch | str | 分支名称 | 通常为"main" |
+| branch | str | 分支名称 |  |
 | password | str | 密码 | 用于下载验证 |
 | tag | str | 当前版本标签 | 如"6.0.0" |
 | diff_tags | arr | 差异更新版本标签 | 可用于增量更新 |
-| categories | arr | 分类信息数组 | 包含语言和游戏分类 |
 
-`main`对象→`categories`数组→对象：
+`game_branches`对象→`categories`数组→对象：
 
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
-| category_id | str | 分类ID | 数字字符串 |
-| matching_field | str | 匹配字段 | 可能是语言代码或分类标识 |
+| category_id | str | 分类ID |  |
+| matching_field | str | 匹配字段 | |
 
 <details>
 <summary>查看示例</summary>
