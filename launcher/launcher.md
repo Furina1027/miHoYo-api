@@ -1,11 +1,21 @@
-# 游戏启动器信息
+# 米哈游启动器
+
 ## 米哈游启动器游戏分支信息
 
 **请求方式：** GET
 
 **API端点：**
+
+**国服：**
+
 ```
 https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
+```
+
+**国际服：**
+
+```
+https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 ```
 
 **参数：**
@@ -39,6 +49,10 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | x6znKlJ0xK | 绝区零 | 官服 | 国服 | nap_cn |
 | HXAFlmYa17 | 绝区零 | 哔哩哔哩服 | 国服 | nap_cn |
 | j7rlly0oYR | 崩坏：因缘精灵 | 官服 | 国服 | abc_cn |
+| gopR6Cufr3 | 原神 | 国际服 | 国际服 | hk4e_global |
+| 4ziysqXOQ8 | 崩坏：星穹铁道 | 国际服 | 国际服 | hkrpg_global |
+| U5hbdsT9W7 | 绝区零 | 国际服 | 国际服 | nap_global |
+| 5TIVvvcwtM<br>g0mMIvshDb<br>uxB4MC7nzC<br>bxPTXSET5t<br> wkE5P5WsIf| 崩坏三 | 欧美服<br>日服<br>韩服<br>东南亚服<br>繁中服 | 国际服 | bh3_global |
 | 4qvmDrMwKS | 崩坏：因缘精灵 | 国际服 | 国际服 | abc_global |
 
 **JSON返回：**
@@ -149,10 +163,18 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 **请求方式：** GET
 
 **API端点：**
+
+**国服：**
+
 ```
 https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGamePackages
 ```
 
+**国际服：**
+
+```
+https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
+```
 **参数：**
 
 | 字段 | 类型 | 内容 | 备注 |
