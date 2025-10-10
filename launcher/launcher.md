@@ -23,6 +23,7 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | VYTpXlbWo8 | 绝区零<br>崩坏：星穹铁道<br>原神<br>崩坏3 | 国际服 | 国际服 | |
 | umfgRO5gh5 | 原神 | 哔哩哔哩服 | 国服 | |
 | 6P5gHMNyK3 | 崩坏：星穹铁道 | 哔哩哔哩服 | 国服 | |
+| xV0f4r1GT0 | 绝区零 | 哔哩哔哩服 | 国服 | |
 
 **游戏ID：**
 
@@ -32,7 +33,9 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | T2S0Gz4Dr2 | 原神 | 哔哩哔哩服 | 国服 | hk4e_cn |
 | osvnlOc0S8 | 崩坏3 | 官服 | 国服 | bh3_cn |
 | 64kMb5iAWu | 崩坏：星穹铁道 | 官服 | 国服 | hkrpg_cn |
+| EdtUqXfCHh | 崩坏：星穹铁道 | 哔哩哔哩服 | 国服 | hkrpg_cn |
 | x6znKlJ0xK | 绝区零 | 官服 | 国服 |nap_cn |
+| HXAFlmYa17 | 绝区零 | 哔哩哔哩服 | 国服 |nap_cn |
 
 **JSON返回：**
 
