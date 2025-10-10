@@ -18,6 +18,13 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 ```
 
+**内测（崩坏：因缘精灵）：**
+
+```
+https://hyp-api-beta.mihoyo.com/hyp/hyp-connect/api/getGameBranches
+https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
+```
+
 **参数：**
 
 | 字段 | 类型 | 内容 | 备注 |
@@ -175,6 +182,14 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGamePackages
 ```
 https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
 ```
+
+**内测（崩坏：因缘精灵）：**
+
+```
+https://hyp-api-beta.mihoyo.com/hyp/hyp-connect/api/getGamePackages
+https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
+```
+
 **参数：**
 
 | 字段 | 类型 | 内容 | 备注 |
@@ -358,6 +373,14 @@ https://downloader-api.mihoyo.com/downloader/sophon_chunk/api/getBuild
 ```
 https://sg-downloader-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 ```
+
+**内测（崩坏：因缘精灵）：**
+
+```
+https://api-beta.mihoyo.com/downloader/sophon_chunk/api/getBuild
+https://sg-beta-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
+```
+
 
 **参数：**
 
