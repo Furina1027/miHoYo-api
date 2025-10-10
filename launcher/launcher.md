@@ -182,15 +182,6 @@ https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
 | game_ids[] | str | 游戏ID数组 | 可传入多个游戏ID获取包信息 |
 | launcher_id | str | 启动器ID | 必需参数 |
 
-**支持的游戏ID：**
-
-| 游戏ID | 对应游戏 | biz标识 |
-|--------|----------|---------|
-| 1Z8W5NHUQb | 《原神》国服 | hk4e_cn |
-| osvnlOc0S8 | 《崩坏3》国服 | bh3_cn |
-| 64kMb5iAWu | 《崩坏：星穹铁道》国服 | hkrpg_cn |
-| x6znKlJ0xK | 《绝区零》国服 | nap_cn |
-
 **JSON返回：**
 
 根对象：
@@ -355,8 +346,17 @@ https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
 **请求方式：** GET
 
 **API端点：**
+
+**国服：**
+
 ```
 https://downloader-api.mihoyo.com/downloader/sophon_chunk/api/getBuild
+```
+
+**国际服：**
+
+```
+https://sg-downloader-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 ```
 
 **参数：**
