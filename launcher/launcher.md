@@ -29,6 +29,7 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | 游戏ID | 游戏 | 服务器 | 区域 | biz标识 |
 |--------|-------|--------|-------|-------|
 | 1Z8W5NHUQb | 原神 | 官服 | 国服 | hk4e_cn |
+| T2S0Gz4Dr2 | 原神 | 哔哩哔哩服 | 国服 | hk4e_cn |
 | osvnlOc0S8 | 崩坏3 | 官服 | 国服 | bh3_cn |
 | 64kMb5iAWu | 崩坏：星穹铁道 | 官服 | 国服 | hkrpg_cn |
 | x6znKlJ0xK | 绝区零 | 官服 | 国服 |nap_cn |
