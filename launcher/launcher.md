@@ -15,7 +15,16 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 | game_ids[] | str | 游戏ID数组 | 可传入多个游戏ID获取分支信息 |
 | launcher_id | str | 启动器ID | 必需参数 |
 
-**支持的游戏ID：**
+**启动器ID：**
+
+| ID | 游戏 | 服务器 | 区域 | 备注 |
+| -- | --- | ----- | ---- | --- |
+| jGHBHlcOq1 | 绝区零<br>崩坏：星穹铁道<br>原神<br>崩坏3 | 官服 | 国服 | |
+| VYTpXlbWo8 | 绝区零<br>崩坏：星穹铁道<br>原神<br>崩坏3 | 国际服 | 国际服 | |
+| umfgRO5gh5 | 原神 | 哔哩哔哩服 | 国服 | |
+| 6P5gHMNyK3 | 崩坏：星穹铁道 | 哔哩哔哩服 | 国服 | |
+
+**游戏ID：**
 
 | 游戏ID | 对应游戏 | biz标识 |
 |--------|----------|---------|
