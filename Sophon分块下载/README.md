@@ -64,7 +64,7 @@ https://github.com/Furina1027/miHoYo-api/blob/main/launcher/launcher.md#%E7%B1%B
 
 ## 第二步: 获取Sophon分块信息
 
-https://github.com/Furina1027/miHoYo-api/blob/main/%E5%90%AF%E5%8A%A8%E5%99%A8/launcher.md#sophon%E5%88%86%E5%9D%97%E4%B8%8B%E8%BD%BD
+https://github.com/Furina1027/miHoYo-api/blob/main/launcher/launcher.md#sophon%E5%88%86%E5%9D%97%E4%B8%8B%E8%BD%BD
 
 <details>
 <summary>查看响应示例</summary>
