@@ -469,16 +469,6 @@ https://sg-beta-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 | file_count | str | 文件数量 | 资源文件总数 |
 | chunk_count | str | 去重分块数量 | 去重后分块文件总数 |
 
-**支持的资源分类：**
-
-| 分类ID | 分类名称 | matching_field | 说明 |
-|--------|----------|----------------|------|
-| 10017 | 游戏资源-外网 | game | 游戏本体资源 |
-| 10018 | 语音包-中文-外网 | zh-cn | 中文语音包 |
-| 10019 | 语音包-英文-外网 | en-us | 英文语音包 |
-| 10020 | 语音包-韩文-外网 | ko-kr | 韩文语音包 |
-| 10021 | 语音包-日文-外网 | ja-jp | 日文语音包 |
-
 <details>
 <summary>查看示例</summary>
 
