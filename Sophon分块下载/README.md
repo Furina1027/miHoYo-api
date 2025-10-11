@@ -301,7 +301,7 @@ pip install requests zstandard protobuf
 ```
 确保目录下已有`Sophon_pb2.py`文件
 
-运行`Manifest.py`
+运行`Manifest.py`，需要修改文件中的`manifest_url`。
 
  ```bash
    python manifest_parser.py
@@ -342,7 +342,7 @@ Python 实现:
 
 确保已经生成格式正确的`chunk_ids.json` 文件
 
-运行`chunkdownloaded.py`
+运行`chunkdownloaded.py`，需要修改文件中的`chunk_prefix`。
 
  ```bash
    python sophon_downloader.py
