@@ -42,23 +42,26 @@ def download_and_parse_manifest(manifest_url):
 
     # 使用示例
 def export_all_chunk_ids(manifest):
-        """导出所有 chunk ID"""
-        all_chunks = []
+    """从 manifest 中提取所有 chunk 信息"""
+    all_chunks = []
+    for file in manifest.chuncks:
+        for chunk in file.chunks:
+            def to_hex_str(val):
+                if isinstance(val, bytes):
+                    return val.hex()
+                return str(val)
 
-        for file in manifest.chuncks:
-            for chunk in file.chunks:
-                chunk_info = {
-                    'file': file.file,
-                    'chunk_id': chunk.id,
-                    'offset': chunk.offset,
-                    'compressed_size': chunk.compressed_size,
-                    'uncompressed_size': chunk.uncompressed_size,
-                    'compressed_md5': chunk.compressed_md5,
-                    'uncompressed_md5': chunk.uncompressed_md5
-                }
-                all_chunks.append(chunk_info)
-
-        return all_chunks
+            chunk_info = {
+                'file': file.file,
+                'chunk_id': chunk.id,
+                'offset': chunk.offset,
+                'compressed_size': chunk.compressed_size,
+                'uncompressed_size': chunk.uncompressed_size,
+                'compressed_md5': to_hex_str(chunk.compressed_md5),
+                'uncompressed_md5': to_hex_str(chunk.uncompressed_md5)
+            }
+            all_chunks.append(chunk_info)
+    return all_chunks
 
 if __name__ == "__main__":
         manifest_url = "https://autopatchcn.yuanshen.com/client_app/sophon/manifests/cxgf44wie1a8/keNBn8xtnZIG/manifest_02a289d4e886c74d_15cd4224f71a0bcef2b305f629396eac"
