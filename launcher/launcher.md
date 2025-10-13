@@ -84,7 +84,6 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 |------|------|------|------|
 | game | obj | 游戏基本信息 | 包含游戏ID和biz标识 |
 | main | obj | 主分支信息 | 包含版本、包信息等 |
-| categories | arr | 分类信息数组 | 包含语言和游戏分类 |
 | pre_download | obj/null | 预下载分支信息 | 如无预下载版本则为null |
 
 `game_branches`数组→对象→`game`对象：
@@ -98,18 +97,30 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
-| package_id | str | 包ID | 游戏安装包唯一标识 |
+| package_id | str | 包ID |  |
 | branch | str | 分支名称 |  |
 | password | str | 密码 | 用于下载验证 |
 | tag | str | 当前版本标签 | 如"6.0.0" |
 | diff_tags | arr | 差异更新版本标签 | 可用于增量更新 |
+| categories | arr | 分类信息数组 | 包含游戏分类标签 |
 
-`game_branches`对象→`categories`数组→对象：
+ `game_branches`数组→对象→`pre_download`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| package_id | str | 包ID |  |
+| branch | str | 分支名称 | |
+| password | str | 密码 | 用于下载验证 |
+| tag | str | 预下载版本标签 |  |
+| diff_tags | arr | 差异更新版本标签 |  |
+| categories | arr | 分类信息数组 | 包含游戏分类标签 |
+
+ `main`和`pre_download`对象→`categories`数组→对象：
 
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
 | category_id | str | 分类ID |  |
-| matching_field | str | 匹配字段 | |
+| matching_field | str | 匹配字段 | 如"game", "zh-cn" |
 
 <details>
 <summary>查看示例</summary>
