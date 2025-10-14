@@ -400,6 +400,7 @@ https://sg-beta-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 | branch | str | 分支名称 | "main"或"predownload" |
 | package_id | str | 包ID | 从getGameBranches获取 |
 | password | str | 密码 | 从getGameBranches获取 |
+| tag | str | 版本号 | 非必须，默认当前版本，若获取过去的版本branch需为main |
 | plat_app | str | 平台应用标识 | 非必须，如"ddxf5qt290cg" |
 
 **JSON返回：**
