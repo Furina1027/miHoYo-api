@@ -535,9 +535,154 @@ https://sg-beta-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 </details>
 
 
+## Sophon分块下载（预下载）
 
+上述接口若`branch`参数为`predownload`，返回的为下个版本的完整包，并不是增量包，增量包需要另一个接口。
 
+**请求方式：** POST
 
+**API端点：**
+```
+https://downloader-api.mihoyo.com/downloader/sophon_chunk/api/getPatchBuild
+```
+
+**参数：**
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| branch | str | 分支名称 | "predownload" |
+| package_id | str | 包ID | 从getGameBranches获取 |
+| password | str | 密码 | 从getGameBranches获取 |
+| plat_app | str | 平台应用标识 | 非必需 |
+
+**JSON返回：**
+
+根对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| retcode | num | 返回码 | 0表示成功 |
+| message | str | 返回消息 | 通常为"OK" |
+| data | obj | 补丁构建信息数据 | 包含补丁分块下载相关信息 |
+
+`data`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| build_id | str | 构建ID | 唯一标识该构建版本 |
+| patch_id | str | 补丁ID | 唯一标识该补丁版本 |
+| tag | str | 目标版本 | 如"2.3.0" |
+| manifests | arr | 清单信息数组 | 包含各类资源的补丁分块信息 |
+
+`data`对象→`manifests`数组→对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| category_id | str | 分类ID | 资源分类唯一标识 |
+| category_name | str | 分类名称 | 如"游戏资源-外网" |
+| manifest | obj | 清单基本信息 | 包含清单校验信息 |
+| diff_download | obj | 差异下载配置 | 补丁文件下载相关配置 |
+| manifest_download | obj | 清单下载配置 | 清单文件下载相关配置 |
+| matching_field | str | 匹配字段 | 如"game", "zh-cn"等 |
+| stats | obj | 统计信息 | 补丁资源统计信息 |
+
+`manifests`数组→对象→`manifest`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| id | str | 清单ID | 清单文件唯一标识 |
+| checksum | str | 校验码 | 清单文件MD5校验码 |
+| compressed_size | str | 压缩大小 | 清单文件压缩后大小 |
+| uncompressed_size | str | 解压大小 | 清单文件解压后大小 |
+
+`manifests`数组→对象→`diff_download`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| encryption | num | 加密类型 | 0表示未加密 |
+| password | str | 下载密码 | 补丁下载密码，通常为空 |
+| compression | num | 压缩类型 | 1表示启用压缩 |
+| url_prefix | str | URL前缀 | 补丁文件下载URL前缀 |
+| url_suffix | str | URL后缀 | 补丁文件下载URL后缀 |
+
+`manifests`数组→对象→`manifest_download`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| encryption | num | 加密类型 | 0表示未加密 |
+| password | str | 下载密码 | 清单下载密码，通常为空 |
+| compression | num | 压缩类型 | 1表示启用压缩 |
+| url_prefix | str | URL前缀 | 清单文件下载URL前缀 |
+| url_suffix | str | URL后缀 | 清单文件下载URL后缀 |
+
+`manifests`数组→对象→`stats`对象：
+
+| 字段 | 类型 | 内容 | 备注 |
+|------|------|------|------|
+| {version} | obj | 版本统计信息 | 以源版本号为键的统计信息 |
+| compressed_size | str | 压缩总大小 | 补丁分块压缩后总大小 |
+| uncompressed_size | str | 解压总大小 | 补丁分块解压后总大小 |
+| file_count | str | 文件数量 | 补丁分块文件总数 |
+| chunk_count | str | 分块数量 | 补丁分块总数 |
+
+以绝区零`2.3.0`版本预下载为例，`tag`字段为`2.3.0`表示目标版本是`2.3.0`，当 `stats` 对象包含 `{version}` 字段时（如 `2.1.0`, `2.2.0`），表示从该版本升级到`2.3.0`，需要下载对应的补丁分块。当 `stats` 对象为空 `{}` 时，表示从`2.1.0`, `2.2.0`升级到`2.3.0`都无需下载此分块，只有本地无游戏资源，直接下载到`2.3.0`才需要下载此分块，此时可以直接用上个接口。
+
+<details>
+<summary>查看示例</summary>
+
+```json
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "build_id": "vSW4X58H3qTt",
+    "patch_id": "bYijqL2uIVFZ",
+    "tag": "2.3.0",
+    "manifests": [
+      {
+        "category_id": "10047",
+        "category_name": "游戏资源-外网",
+        "manifest": {
+          "id": "manifest_6c4ed0e7f0c3cb52_4944f82d38bef855da3c6516ef149c0d",
+          "checksum": "4944f82d38bef855da3c6516ef149c0d",
+          "compressed_size": "371602",
+          "uncompressed_size": "1491851"
+        },
+        "diff_download": {
+          "encryption": 0,
+          "password": "",
+          "compression": 1,
+          "url_prefix": "https://autopatchcn.juequling.com/pclauncher/diffs/cxi9diu5aadc/2025-09-24/2.3.0/Se5W9E6sLXil/10047",
+          "url_suffix": ""
+        },
+        "manifest_download": {
+          "encryption": 0,
+          "password": "",
+          "compression": 1,
+          "url_prefix": "https://autopatchcn.juequling.com/pclauncher/manifests/cxi9diu5aadc/2025-09-24/2.3.0/Se5W9E6sLXil",
+          "url_suffix": ""
+        },
+        "matching_field": "game",
+        "stats": {
+          "2.2.0": {
+            "compressed_size": "7220611294",
+            "uncompressed_size": "7220611294",
+            "file_count": "7716",
+            "chunk_count": "129"
+          },
+          "2.1.0": {
+            "compressed_size": "8966922648",
+            "uncompressed_size": "8966922648",
+            "file_count": "7716",
+            "chunk_count": "159"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+</details>
 
 
 
