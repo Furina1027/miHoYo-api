@@ -18,7 +18,7 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 ```
 
-**内测（崩坏：因缘精灵）：**
+**内测（崩坏：因缘精灵 星布谷地）：**
 
 ```
 https://hyp-api-beta.mihoyo.com/hyp/hyp-connect/api/getGameBranches
@@ -43,6 +43,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | xV0f4r1GT0 | 绝区零 | 哔哩哔哩服 | 国服 | |
 | TC4836G73s | 崩坏：因缘精灵 | 官服 | 国服 | 一测 |
 | 95ODRGH3xC | 崩坏：因缘精灵 | 国际服 | 国际服 | 一测 |
+| GcFHm7rte6 | 星布谷地 | 国服 | 国服 | 一测 |
 
 **游戏ID：**
 
@@ -61,6 +62,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | U5hbdsT9W7 | 绝区零 | 国际服 | 国际服 | nap_global |
 | 5TIVvvcwtM<br>g0mMIvshDb<br>uxB4MC7nzC<br>bxPTXSET5t<br> wkE5P5WsIf| 崩坏三 | 欧美服<br>日服<br>韩服<br>东南亚服<br>繁中服 | 国际服 | bh3_global |
 | 4qvmDrMwKS | 崩坏：因缘精灵 | 国际服 | 国际服 | abc_global |
+| 0fijU7nET7 | 星布谷地 | 国服 | 国服 | hyg_cn |
 
 **JSON返回：**
 
