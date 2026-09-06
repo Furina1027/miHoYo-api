@@ -1,0 +1,9 @@
+# protoc 生成物
+Sophon_pb2.py
+Sophon_pb2*.pyi
+
+# 脚本运行产物
+chunk_ids.json
+downloaded_files/
+chunks/
+__pycache__/

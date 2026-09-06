@@ -61,7 +61,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | gopR6Cufr3 | 原神 | 国际服 | 国际服 | hk4e_global |
 | 4ziysqXOQ8 | 崩坏：星穹铁道 | 国际服 | 国际服 | hkrpg_global |
 | U5hbdsT9W7 | 绝区零 | 国际服 | 国际服 | nap_global |
-| 5TIVvvcwtM<br>g0mMIvshDb<br>uxB4MC7nzC<br>bxPTXSET5t<br> wkE5P5WsIf| 崩坏三 | 欧美服<br>日服<br>韩服<br>东南亚服<br>繁中服 | 国际服 | bh3_global |
+| 5TIVvvcwtM<br>g0mMIvshDb<br>uxB4MC7nzC<br>bxPTXSET5t<br>wkE5P5WsIf | 崩坏3 | 欧美服<br>日服<br>韩服<br>东南亚服<br>繁中服 | 国际服 | bh3_global |
 | 4qvmDrMwKS | 崩坏：因缘精灵 | 国际服 | 国际服 | abc_global |
 | 0fijU7nET7 | 星布谷地 | 国服 | 国服 | hyg_cn |
 | pkMBmK7jxJ | TheWeavers | 国服 | 国服 | kl_cn |
@@ -105,9 +105,10 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | package_id | str | 包ID |  |
 | branch | str | 分支名称 |  |
 | password | str | 密码 | 用于下载验证 |
-| tag | str | 当前版本标签 | 如"6.0.0" |
+| tag | str | 当前版本标签 | 如"7.0.0" |
 | diff_tags | arr | 差异更新版本标签 | 可用于增量更新 |
 | categories | arr | 分类信息数组 | 包含游戏分类标签 |
+| required_client_version | str | 客户端最低版本要求 | 可为空 |
 
  `game_branches`数组→对象→`pre_download`对象：
 
@@ -119,6 +120,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | tag | str | 预下载版本标签 |  |
 | diff_tags | arr | 差异更新版本标签 |  |
 | categories | arr | 分类信息数组 | 包含游戏分类标签 |
+| required_client_version | str | 客户端最低版本要求 | 可为空 |
 
  `main`和`pre_download`对象→`categories`数组→对象：
 
@@ -126,6 +128,8 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 |------|------|------|------|
 | category_id | str | 分类ID |  |
 | matching_field | str | 匹配字段 | 如"game", "zh-cn" |
+| type | str | 分类类型 | `CATEGORY_TYPE_RESOURCE` 游戏资源 / `CATEGORY_TYPE_AUDIO` 语音包 |
+| scenarios | arr | 适用场景数组 | 如 `CATEGORY_SCENARIO_FULL`（完整下载） |
 
 <details>
 <summary>查看示例</summary>
@@ -145,33 +149,30 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
           "package_id": "8xfMve0uwQ",
           "branch": "main",
           "password": "CW8GbLNU8f",
-          "tag": "6.0.0",
+          "tag": "7.0.0",
           "diff_tags": [
-            "5.8.0",
-            "5.7.0"
+            "6.7.0",
+            "6.6.0"
           ],
           "categories": [
             {
               "category_id": "10017",
-              "matching_field": "game"
+              "matching_field": "game",
+              "type": "CATEGORY_TYPE_RESOURCE",
+              "scenarios": [
+                "CATEGORY_SCENARIO_FULL"
+              ]
             },
             {
               "category_id": "10018",
-              "matching_field": "zh-cn"
-            },
-            {
-              "category_id": "10019",
-              "matching_field": "en-us"
-            },
-            {
-              "category_id": "10021",
-              "matching_field": "ja-jp"
-            },
-            {
-              "category_id": "10020",
-              "matching_field": "ko-kr"
+              "matching_field": "zh-cn",
+              "type": "CATEGORY_TYPE_AUDIO",
+              "scenarios": [
+                "CATEGORY_SCENARIO_FULL"
+              ]
             }
-          ]
+          ],
+          "required_client_version": ""
         },
         "pre_download": null
       }
@@ -255,7 +256,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
 
 | 字段 | 类型 | 内容 | 备注 |
 |------|------|------|------|
-| version | str | 版本号 | 原神的截止到5.5.0 后续改为chunk，无完整包|
+| version | str | 版本号 | 原神 5.5.0 之后不再提供完整安装包，仅可通过 Sophon 分块下载 |
 | game_pkgs | arr | 游戏包信息数组 | 完整游戏安装包(可能分卷) |
 | audio_pkgs | arr | 音频包信息数组 | 各语言音频包 |
 | res_list_url | str | 资源列表URL | 拼接pkg_version后得到资源列表文件 |
@@ -300,6 +301,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
 |------|------|------|------|
 | major | obj/null | 预下载主版本信息 | 如无预下载版本则为null |
 | patches | arr | 预下载补丁信息数组 | 预下载版本的补丁信息 |
+| required_client_version | str | 客户端最低版本要求 | 可为空 |
 
 <details>
 <summary>查看示例</summary>
@@ -363,7 +365,8 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGamePackages
         },
         "pre_download": {
           "major": null,
-          "patches": []
+          "patches": [],
+          "required_client_version": ""
         }
       }
     ]
@@ -689,23 +692,3 @@ https://downloader-api.mihoyo.com/downloader/sophon_chunk/api/getPatchBuild
 }
 ```
 </details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
