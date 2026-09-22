@@ -18,12 +18,14 @@ https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 ```
 
-**内测（崩坏：因缘精灵 星布谷地）：**
+**内测（崩坏：因缘精灵 星布谷地国服）：**
 
 ```
 https://hyp-api-beta.mihoyo.com/hyp/hyp-connect/api/getGameBranches
 https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 ```
+
+> **特殊说明：** 星布谷地**国际服三测**（`launcher_id=dYgxEMpG3U`、`game_id=a26PNg1Mgk`）不走上述 beta 端点，在 beta 端点会返回 `-1200 launcher not found`；请使用**正式国际服**端点 `sg-hyp-api.hoyoverse.com`。
 
 **参数：**
 
@@ -44,6 +46,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | TC4836G73s | 崩坏：因缘精灵 | 官服 | 国服 | 一测 |
 | 95ODRGH3xC | 崩坏：因缘精灵 | 国际服 | 国际服 | 一测 |
 | GcFHm7rte6 | 星布谷地 | 国服 | 国服 | 一测 |
+| dYgxEMpG3U | 星布谷地 | 国际服 | 国际服 | 三测；**走正式国际服端点**，非 beta 端点 |
 | TATUNXLuIq | TheWeavers | 国服 | 国服 | 保密测 |
 
 **游戏ID：**
@@ -64,6 +67,7 @@ https://sg-hyp-api-beta.hoyoverse.com/hyp/hyp-connect/api/getGameBranches
 | 5TIVvvcwtM<br>g0mMIvshDb<br>uxB4MC7nzC<br>bxPTXSET5t<br>wkE5P5WsIf | 崩坏3 | 欧美服<br>日服<br>韩服<br>东南亚服<br>繁中服 | 国际服 | bh3_global |
 | 4qvmDrMwKS | 崩坏：因缘精灵 | 国际服 | 国际服 | abc_global |
 | 0fijU7nET7 | 星布谷地 | 国服 | 国服 | hyg_cn |
+| a26PNg1Mgk | 星布谷地 | 国际服 | 国际服 | hyg_global；三测，配合 `launcher_id=dYgxEMpG3U` 用正式国际服端点 |
 | pkMBmK7jxJ | TheWeavers | 国服 | 国服 | kl_cn |
 
 
@@ -400,6 +404,7 @@ https://api-beta.mihoyo.com/downloader/sophon_chunk/api/getBuild
 https://sg-beta-api.hoyoverse.com/downloader/sophon_chunk/api/getBuild
 ```
 
+> **特殊说明：** 星布谷地国际服三测的 `package_id=A05KMaVncb`、`password=vdvmwD6gd5Lq`、`plat_app=ddxf6vlr1reo` 同样只在**正式国际服** `sg-downloader-api.hoyoverse.com` 可用；beta / 国服端点返回 `-201 invalid params`，且当前无预下载（`branch=predownload` 亦为 `-201`）。
 
 **参数：**
 
